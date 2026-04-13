@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binary Atlas Explorer</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#0d1117; color:#c9d1d9; }
+header { background:#161b22; border-bottom:1px solid #30363d; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; }
+header h1 { font-size:20px; color:#58a6ff; }
+header .doi { font-size:12px; color:#8b949e; }
+main { max-width:1200px; margin:0 auto; padding:24px; }
+.card { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:20px; margin-bottom:16px; }
+.card h2 { color:#58a6ff; margin-bottom:12px; font-size:16px; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th { background:#21262d; color:#58a6ff; padding:8px 12px; text-align:left; border-bottom:2px solid #30363d; }
+td { padding:6px 12px; border-bottom:1px solid #21262d; }
+tr:hover td { background:#1c2128; }
+.bar { height:16px; background:#238636; border-radius:3px; display:inline-block; vertical-align:middle; }
+.bar.cancer { background:#da3633; }
+.bar.fetal { background:#d29922; }
+.bar.normal { background:#238636; }
+.num { font-family:'SF Mono',Consolas,monospace; color:#79c0ff; }
+.summary-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:12px; }
+.stat { text-align:center; }
+.stat .big { font-size:28px; font-weight:bold; color:#58a6ff; }
+.stat .label { font-size:12px; color:#8b949e; }
+#loading { text-align:center; padding:40px; color:#8b949e; }
+footer { text-align:center; padding:24px; color:#484f58; font-size:12px; }
+footer a { color:#58a6ff; text-decoration:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Binary Atlas Explorer</h1>
+  <div class="doi">DOI: 10.5281/zenodo.19556878 | ORCID: 0009-0002-2980-0055</div>
+</header>
+<main>
+  <div id="loading">Loading atlas data...</div>
+  <div id="content" style="display:none">
+
+    <div class="card">
+      <h2>Atlas Summary</h2>
+      <div class="summary-grid" id="summary-grid"></div>
+    </div>
+
+    <div class="card">
+      <h2>Independence Axis</h2>
+      <p style="color:#8b949e;margin-bottom:12px;font-size:13px">
+        Every condition measured with zero parameters. Sorted by RIBO independence.
+        Lower = more coupled (healthy). Higher = more decoupled (disease).
+      </p>
+      <table id="axis-table">
+        <thead><tr><th>Condition</th><th>Tissue</th><th>Disease</th><th>Cells</th><th>RIBO Indep</th><th style="width:30%">Axis</th><th>K_RG</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Structural Isoform Atlas</h2>
+      <p style="color:#8b949e;margin-bottom:12px;font-size:13px">
+        Excised introns folded with ViennaRNA. Cancer releases rigid scaffolds. Fetal releases flexible intermediates.
+      </p>
+      <table id="structural-table">
+        <thead><tr><th>Intron</th><th>GC%</th><th>MFE/nt</th><th>Paired%</th><th>Stems</th><th>Size</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </div>
+</main>
+<footer>
+  <a href="https://github.com/ThePracticalHow/Quantum-BioAntenna">GitHub</a> |
+  <a href="https://doi.org/10.5281/zenodo.19556878">Zenodo</a> |
+  <a href="https://u-os.dev">u-os.dev</a> |
+  Jixiang Leng, 2026. The cell is the atom.
+</footer>
+
+<script>
+const API = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? `http://${window.location.hostname}:8787`
+  : '';
+
+async function loadAtlas() {
+  try {
+    const [summary, axis, structural] = await Promise.all([
+      fetch(API + '/atlas').then(r => r.json()),
+      fetch(API + '/atlas/axis').then(r => r.json()),
+      fetch(API + '/atlas/structural').then(r => r.json()),
+    ]);
+
+    // Summary
+    const grid = document.getElementById('summary-grid');
+    const tables = summary.tables || {};
+    const stats = [
+      { big: (tables.conditions || 0).toLocaleString(), label: 'Conditions' },
+      { big: (tables.cells || 0).toLocaleString(), label: 'Cells' },
+      { big: (tables.coupling_tensor || 0).toLocaleString(), label: 'Tensors' },
+      { big: (tables.structural || 0).toLocaleString(), label: 'Structures' },
+      { big: (tables.base4_xor || 0).toLocaleString(), label: 'XOR Profiles' },
+      { big: (summary.tissues || []).length, label: 'Tissues' },
+    ];
+    grid.innerHTML = stats.map(s =>
+      `<div class="stat"><div class="big">${s.big}</div><div class="label">${s.label}</div></div>`
+    ).join('');
+
+    // Axis
+    const tbody = document.querySelector('#axis-table tbody');
+    const maxIndep = Math.max(...axis.map(r => r.ribo_indep || 0), 1);
+    tbody.innerHTML = axis.map(r => {
+      const pct = ((r.ribo_indep || 0) / maxIndep * 100).toFixed(0);
+      const cls = (r.disease || '').includes('cancer') ? 'cancer' :
+                  (r.name || '').toLowerCase().includes('fetal') ? 'fetal' : 'normal';
+      return `<tr>
+        <td>${r.name || '?'}</td>
+        <td>${r.tissue || ''}</td>
+        <td>${r.disease || ''}</td>
+        <td class="num">${(r.n_cells || 0).toLocaleString()}</td>
+        <td class="num">${(r.ribo_indep || 0).toFixed(3)}</td>
+        <td><div class="bar ${cls}" style="width:${pct}%"></div></td>
+        <td class="num">${(r.k_rg || 0).toFixed(3)}</td>
+      </tr>`;
+    }).join('');
+
+    // Structural
+    const stbody = document.querySelector('#structural-table tbody');
+    stbody.innerHTML = structural.map(r =>
+      `<tr>
+        <td>${(r.intron_id || '?').substring(0, 35)}</td>
+        <td class="num">${(r.gc_pct || 0).toFixed(1)}%</td>
+        <td class="num">${(r.mfe_per_nt || 0).toFixed(3)}</td>
+        <td class="num">${(r.pct_paired || 0).toFixed(1)}%</td>
+        <td class="num">${r.stems || 0}</td>
+        <td class="num">${r.size || 0} bp</td>
+      </tr>`
+    ).join('');
+
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  } catch (e) {
+    document.getElementById('loading').innerHTML =
+      `<p>Could not load atlas data.</p>
+       <p style="font-size:12px;margin-top:8px">Start the API: <code>python atlas_api.py</code></p>
+       <p style="font-size:12px;margin-top:4px">Error: ${e.message}</p>`;
+  }
+}
+
+loadAtlas();
+</script>
+</body>
+</html>
