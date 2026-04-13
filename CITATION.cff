@@ -1,14 +1,16 @@
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below."
+message: "If you use this work, please cite the archived Zenodo release below."
 title: "The Spliceosome as Quantum Router: Operator Coupling Determines Splice Outcome"
 authors:
   - family-names: "Leng"
     given-names: "Jixiang"
     orcid: "https://orcid.org/0009-0002-2980-0055"
 type: dataset
+version: "v1.0.0"
+doi: "10.5281/zenodo.19555738"
 date-released: "2026-04-13"
-license: "MIT"
-repository-code: "https://github.com/ThePracticalHow/TheLab"
+url: "https://zenodo.org/records/19555738"
+repository-code: "https://github.com/ThePracticalHow/Quantum-BioAntenna"
 keywords:
   - spliceosome
   - alternative splicing

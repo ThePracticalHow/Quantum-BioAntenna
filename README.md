@@ -2,7 +2,8 @@
 
 ### The Spliceosome as Quantum Router: Operator Coupling Determines Splice Outcome
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19554900.svg)](https://doi.org/10.5281/zenodo.19554900)
+[![Zenodo Version DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19555738.svg)](https://doi.org/10.5281/zenodo.19555738)
+[![Zenodo Concept DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19555737.svg)](https://doi.org/10.5281/zenodo.19555737)
 [![LENG DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18712638.svg)](https://doi.org/10.5281/zenodo.18712638)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE_CODE.md)
 [![License: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey.svg)](LICENSE_DATA.md)
@@ -92,10 +93,13 @@ python tools/replicate_md_ipclean.py --mode all --metal Mg --steps 50000
 
 ## Citing
 
+Use the **version DOI** when citing the archived `v1.0.0` release, and use the **concept DOI** when referring to the repository across versions.
+
+```text
+Leng, J. (2026). The Spliceosome as Quantum Router: Operator Coupling Determines Splice Outcome (Version v1.0.0) [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.19555738
 ```
-Leng, J. (2026). The Spliceosome as Quantum Router: Operator Coupling
-Determines Splice Outcome. Zenodo. https://doi.org/10.5281/zenodo.19554900
-```
+
+All-version concept DOI: `10.5281/zenodo.19555737`
 
 ## License
 
