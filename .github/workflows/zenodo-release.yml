@@ -1,0 +1,27 @@
+name: Zenodo Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create release zip
+        run: |
+          zip -r release.zip . \
+            -x '.git/*' \
+            -x '.github/*' \
+            -x '*.zip'
+
+      - name: Upload to Zenodo
+        uses: zenodraft/action@v1
+        with:
+          metadata: .zenodo.json
+          filenames: release.zip
+          upsert-doi: 10.5281/zenodo.19554900
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}

@@ -1,0 +1,38 @@
+# Quantum-BioAntenna
+
+## Summary
+Zero-parameter measurement framework for spliceosome decision-making across cellular states. Shows operator coupling determines splice outcome. Light and sound recouple operators. Meditation measurably recouples at 3 months. Alzheimer's is six simultaneous radio failure modes.
+
+## Key Claims (all from public data)
+- Operator independence axis: 20 conditions, 500K+ cells, zero crossings (GSE131907)
+- Splice junction XOR shift: +7.4% identity from fetal to cancer (7M junctions, SGNex Nanopore)
+- Fetal exploration: 99.98% unique splice chains vs 98.4% cancer convergence
+- Cancer edits for survival: avoids stop codons, seeks start codons at junctions
+- Excised introns: 10-20% in functional RNA sizes, cancer releases rigid scaffolds
+- Meditation recouples: K_RM +40%, RIBO independence -10% at 3 months (GSE174083, PNAS 2021)
+- Mg/Li at GNRA: 1,297 kJ/mol stability difference, 1.34 angstrom deformation (OpenMM, PDB 1ZIF)
+
+## Why Light Works
+Photobiomodulation at 630-850nm targets cytochrome c oxidase (MITO operator). Photon displaces NO, restores electron flow. Tightens K_RM coupling. Pulsed outperforms continuous (anti-Zeno to Zeno transition).
+
+## Why Sound Works
+Cytoskeleton is piezoelectric. Vibration produces local E-fields on GOLGI/NUCLEAR operators. 40 Hz gamma clears amyloid (Tsai lab, MIT, Nature).
+
+## Data
+- 10 public datasets, 7+ countries, 10+ labs
+- Key accessions: GSE131907, GSE131928, GSE174083, GSE226225, GSE250041, GSE150247, PDB 1ZIF
+- Total: 700,000+ cells, 500M+ reads, 451 KB results
+
+## Tools (13 Python scripts, MIT license)
+- coupling_tensor.py: 4x4 operator coupling from any h5ad
+- staff_base4.py: base-4 XOR at splice junctions from any BAM
+- staff_splice_history.py: per-molecule decision chains
+- fold_isoforms.py: ViennaRNA 2D RNA structure
+- replicate_md_ipclean.py: OpenMM Mg/Li molecular dynamics
+
+## DOIs
+- This work: 10.5281/zenodo.19554900
+- LENG physics: 10.5281/zenodo.18712638
+
+## Contact
+Jixiang Leng | https://github.com/ThePracticalHow
