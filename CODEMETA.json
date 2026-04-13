@@ -12,7 +12,8 @@
     {
       "@type": "Person",
       "givenName": "Jixiang",
-      "familyName": "Leng"
+      "familyName": "Leng",
+      "@id": "https://orcid.org/0009-0002-2980-0055"
     }
   ],
   "programmingLanguage": ["Python"],
