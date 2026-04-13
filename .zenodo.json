@@ -1,0 +1,22 @@
+{
+  "title": "Quantum Biology — Spliceosome as Quantum Router",
+  "creators": [
+    {
+      "name": "Leng, Jixiang",
+      "affiliation": "Independent researcher"
+    }
+  ],
+  "description": "Open research materials for the Quantum-BioAntenna project, centered on the spliceosome as an information-routing system in the cell. The repository includes the project brief, evidence catalogue, methodological notes, question-and-answer materials, reviewer-facing documentation, presentations, and supporting figures prepared for open discussion and release-based archival.",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "quantum biology",
+    "spliceosome",
+    "alternative splicing",
+    "RNA biology",
+    "operator coupling",
+    "systems biology",
+    "bioinformatics"
+  ],
+  "upload_type": "publication",
+  "publication_type": "report"
+}
