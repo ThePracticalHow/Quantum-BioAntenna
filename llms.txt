@@ -31,7 +31,8 @@ Cytoskeleton is piezoelectric. Vibration produces local E-fields on GOLGI/NUCLEA
 - replicate_md_ipclean.py: OpenMM Mg/Li molecular dynamics
 
 ## DOIs
-- This work: 10.5281/zenodo.19554900
+- This release: 10.5281/zenodo.19555738
+- All versions: 10.5281/zenodo.19555737
 - LENG physics: 10.5281/zenodo.18712638
 
 ## Contact
