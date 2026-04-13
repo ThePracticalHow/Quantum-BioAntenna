@@ -1,53 +1,55 @@
-# The Spliceosome as Quantum Router
+# Quantum-BioAntenna
 
-**Operator coupling determines splice outcome. Measured across 700,000+ cells and 500M+ reads.**
+### The Spliceosome as Quantum Router: Operator Coupling Determines Splice Outcome
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19554900.svg)](https://doi.org/10.5281/zenodo.19554900)
+[![LENG DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18712638.svg)](https://doi.org/10.5281/zenodo.18712638)
+[![License: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE_CODE.md)
+[![License: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey.svg)](LICENSE_DATA.md)
 
 ---
 
-## What This Is
+> **700,000+ cells. 500M+ reads. 10 datasets. 7+ countries. 13 tools. All public data. All open source.**
 
-A zero-parameter measurement framework for how the spliceosome's behavior changes with cellular state. No thresholds, no training, no normalization. Raw gene counts, rank correlation, four cellular subsystems.
+A zero-parameter measurement framework showing that the spliceosome -- the cell's central information router -- makes categorically different decisions depending on cellular state, and that light, sound, and meditation measurably recouple the operators that aging and disease have decoupled.
 
-**Key findings:**
+---
 
-- A single **operator coupling axis** orders 20 conditions from proliferative (0.154) to GBM (0.890). Seven tissue compartments from one Korean NSCLC cohort (208,506 cells) show zero crossings.
-- A reproducible **splice junction XOR shift** from fetal to cancer states: +7.4 percentage points toward identity, across 7 million junctions from Nanopore full-length transcripts.
-- **Fetal cells explore** (99.98% unique splice chains). **Cancer converges** (98.4%). Per-molecule measurement, not population average.
-- Cancer **avoids stop codons** and **seeks start codons** at splice boundaries. The spliceosome edits for survival.
-- 10-20% of cell-type-specific excised introns are in **functional RNA size ranges**. Cancer releases rigid scaffolds (73% GC). Fetal releases flexible intermediates.
-- **Meditation recouples operators** (GSE174083, PNAS 2021): K_RM +40%, RIBO independence -10% at 3 months post-retreat.
-- Mg2+ **stabilizes RNA 1,297 kJ/mol more than Li+** at GNRA tetraloops (OpenMM MD, personal laptop, public PDB).
+## Key Findings
 
-## Why It Matters
+| Finding | Number | Source |
+|---------|--------|--------|
+| Operator coupling axis | 20 conditions, zero crossings | 500K+ cells, GSE131907 (208K, Korea) |
+| Splice junction XOR shift | +7.4% identity (fetal to cancer) | 7M+ junctions, SGNex Nanopore |
+| Fetal exploration vs cancer convergence | 99.98% vs 98.4% unique chains | Per-molecule, Nanopore |
+| Cancer stop codon avoidance | 1.66-1.84% vs 2.33% fetal | Reading frame analysis |
+| Excised introns in functional RNA range | 10-20% in miRNA/snoRNA sizes | Cell-type-specific |
+| Meditation recouples operators | K_RM +40%, RIBO independence -10% | GSE174083, PNAS 2021, 388 samples |
+| Mg vs Li at GNRA tetraloops | 1,297 kJ/mol difference, 1.34 A RMSD | OpenMM MD, PDB 1ZIF |
 
-Light therapy works because photons recouple the mitochondrial operator (CcO/NO mechanism). Sound therapy works because vibration recouples the cytoskeletal operators (piezoelectric coupling). The coupling tensor is the readout that tells you whether it worked.
+## Why Light and Sound Work
 
-The decoherence time in FMO (60 fs) is not a disproof of quantum biology. It is the bandwidth specification for the antenna. The question was never "does coherence last long enough?" The question is "does the receiver read fast enough?"
+| Intervention | Target Operator | Mechanism | Predicted Readout |
+|---|---|---|---|
+| **Red/NIR light (PBM)** | MITO (CcO) | Photon displaces NO, restores electron flow | K_RM increases |
+| **Sound / 40 Hz** | GOLGI, NUCLEAR (cytoskeleton) | Piezoelectric vibration, local E-fields | K_RG increases |
+| **Molecular jackhammers** | Membrane (GOLGI output) | Vibronic-driven mechanical rupture | Selectively kills low-K_RG |
+| **Meditation** | All operators | Breath (MITO) + attention (NUC) + posture | **Measured: K_RM +40% at 3 months** |
 
-## Data Provenance
+Pulsed light outperforms continuous because the anti-Zeno to Zeno transition requires intermittent measurement. The coupling tensor is the readout that tells you whether it worked.
 
-| Dataset | Accession | Scale | Country |
-|---------|-----------|-------|---------|
-| NSCLC scRNA-seq | GSE131907 | 208K cells | South Korea |
-| GBM scRNA-seq | GSE131928 | 7.9K cells | Israel/USA |
-| SGNex Nanopore | SRA public | 2M+ reads | Singapore |
-| WI-38 senescence | GSE226225 | 27K cells | USA (GEO) |
-| Meditation retreat | GSE174083 | 388 samples | USA (GEO) |
-| Normal adult lung | GSE150247 | 22K cells | USA (GEO) |
-| GNRA tetraloop | PDB 1ZIF | NMR structure | Public domain |
+## Alzheimer's: Six Radio Failure Modes
 
-All public. All reproducible. 7+ countries, 10+ labs.
+Current drugs target 1 of 6 modes. Trial failure rate: 99.6%. A multi-mode protocol costs ~$60/month vs $26,500/year for lecanemab. Full analysis: [`docs/Unclarity_Map_Alzheimers_Six_Failure_Modes.pdf`](docs/Unclarity_Map_Alzheimers_Six_Failure_Modes.pdf)
 
 ## Repository Structure
 
 ```
-tools/          13 Python scripts (MIT license)
-data/           22 data files including SQLite + JSON databases (CC-BY 4.0)
-sequences/      5 FASTA files — cancer and fetal excised introns
-figures/        7 publication-quality charts
-docs/           Briefs, reviewer proof, global source map, PDFs
+data/           22 files — coupling tensors, XOR results, splice chains, databases
+tools/          13 scripts — STAFF suite, coupling tensor, ViennaRNA folding, OpenMM MD
+sequences/      5 FASTA — cancer and fetal excised introns
+figures/        7 PNG — publication-quality charts
+docs/           briefs, reviewer proof, global source map, clinical PDFs
 md_results/     IP-clean Mg/Li molecular dynamics (OpenMM, PDB 1ZIF)
 ```
 
@@ -63,16 +65,32 @@ python tools/staff_base4.py your_file.bam output.json
 # Per-molecule splice decision chains
 python tools/staff_splice_history.py your_file.bam output.json
 
-# Fold excised introns
-pip install ViennaRNA
+# Fold excised introns (pip install ViennaRNA)
 python tools/fold_isoforms.py
 
-# Mg/Li molecular dynamics
-pip install openmm mdtraj pdbfixer
+# Mg/Li MD (pip install openmm mdtraj pdbfixer)
 python tools/replicate_md_ipclean.py --mode all --metal Mg --steps 50000
 ```
 
-## Citing This Work
+## Data Provenance
+
+| Dataset | Accession | Scale | Country |
+|---------|-----------|-------|---------|
+| NSCLC scRNA-seq | GSE131907 | 208,506 cells, 44 patients | South Korea |
+| GBM scRNA-seq | GSE131928 | 7,930 cells, 28 tumors | Israel / USA |
+| SGNex Nanopore | SRA public | 2M+ full-length reads | Singapore / Australia / Spain |
+| Meditation retreat | GSE174083 | 388 samples, PNAS 2021 | USA |
+| WI-38 senescence | GSE226225 | 27,622 cells | USA (public GEO) |
+| Normal adult lung | GSE150247 | 22,427 cells | USA (public GEO) |
+| GNRA tetraloop | PDB 1ZIF | NMR structure | Public domain |
+| CellxGene Census | CZI | 500K+ human cells | Global |
+
+## Related Work
+
+- **LENG (The Resolved Chord):** 87 physical constants from zero free parameters. [DOI: 10.5281/zenodo.18712638](https://doi.org/10.5281/zenodo.18712638)
+- **u-os.dev:** Lab API and warp interface. [https://u-os.dev](https://u-os.dev/?format=md)
+
+## Citing
 
 ```
 Leng, J. (2026). The Spliceosome as Quantum Router: Operator Coupling
@@ -81,13 +99,9 @@ Determines Splice Outcome. Zenodo. https://doi.org/10.5281/zenodo.19554900
 
 ## License
 
-- **Code** (tools/): MIT License
-- **Data and documentation**: CC-BY 4.0
-
-## Contact
-
-Jixiang Leng
+- **Code** (`tools/`): [MIT License](LICENSE_CODE.md)
+- **Data and documentation**: [CC-BY 4.0](LICENSE_DATA.md)
 
 ---
 
-*700,000+ cells. 500M+ reads. 10 datasets. 7+ countries. 9 tools. 4 MB. Built April 2026.*
+*Built April 2026. The code runs. The biology replicates. We need collaborators, not converts.*

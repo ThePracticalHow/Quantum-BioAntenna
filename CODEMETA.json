@@ -1,0 +1,54 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "Quantum-BioAntenna",
+  "description": "The spliceosome as quantum router: a zero-parameter measurement framework showing that operator coupling determines splice outcome across 700,000+ cells and 500M+ reads. Includes the STAFF binary transcriptome suite, coupling tensor computation, ViennaRNA structural folding, and OpenMM molecular dynamics. Demonstrates that light, sound, and meditation measurably recouple cellular operators.",
+  "identifier": "https://doi.org/10.5281/zenodo.19554900",
+  "codeRepository": "https://github.com/ThePracticalHow/Quantum-BioAntenna",
+  "license": "https://spdx.org/licenses/MIT.html",
+  "version": "1.0.0",
+  "datePublished": "2026-04-13",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Jixiang",
+      "familyName": "Leng"
+    }
+  ],
+  "programmingLanguage": ["Python"],
+  "runtimePlatform": "Python 3.11+",
+  "keywords": [
+    "spliceosome",
+    "quantum biology",
+    "alternative splicing",
+    "operator coupling tensor",
+    "single-cell RNA-seq",
+    "Nanopore direct RNA",
+    "photobiomodulation",
+    "meditation",
+    "Alzheimer's disease",
+    "molecular dynamics",
+    "RNA structure"
+  ],
+  "relatedLink": [
+    "https://doi.org/10.5281/zenodo.18712638",
+    "https://u-os.dev"
+  ],
+  "referencePublication": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Comprehensive analysis of Korean NSCLC",
+      "identifier": "https://doi.org/10.1038/s41467-020-16164-1"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Meditation-specific immune response",
+      "identifier": "https://doi.org/10.1073/pnas.2106950118"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Molecular vibronic cancer killing",
+      "identifier": "https://doi.org/10.1038/s41557-024-01446-y"
+    }
+  ]
+}
