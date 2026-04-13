@@ -203,7 +203,19 @@ The missing piece: compute the vibrational spectrum of cancer-specific RNA scaff
 
 ---
 
-## 12. The Antenna Is Not a Metaphor
+## 12. Published Foundation: Intercompartmental Communication in Senescence
+
+The qualitative foundation for this framework is already peer-reviewed and published:
+
+**Mazan-Mamczarz K, Wind EJ, Leng J, Gorospe M. "Intercompartmental communication in senescence." FEBS Open Bio, March 2026. DOI: 10.1002/2211-5463.70236**
+
+This review describes how senescent cells undergo broad remodeling of every major compartment -- plasma membrane, nucleus, ER, Golgi, mitochondria, endolysosomal system, cytoskeleton -- and how the disrupted communication between these compartments drives the senescent phenotype. Golgi dispersal is an early event. Mitochondria-ER contact sites degrade. The lysosome-mitochondria axis creates destructive feedback loops.
+
+**The coupling tensor is the quantitative measurement of what this review describes qualitatively.** When we measure trace(K) dropping 33% in senescence, we are measuring the intercompartmental communication failure that the FEBS paper reviews. When K_RG collapses, that is the Golgi dispersal. When K_RM decouples, that is the mitochondria-ER contact site degradation. The review is the biology. The tensor is the number.
+
+---
+
+## 14. The Antenna Is Not a Metaphor
 
 Three independent engineering literatures have already built what we're describing in biology:
 
@@ -236,7 +248,7 @@ The decoherence time in FMO (60 fs, Duan et al. 2017, PNAS) is not a disproof of
 
 ---
 
-## 14. What We're Asking
+## 13. What We're Asking
 
 **We are looking for collaborators, not converts.**
 
@@ -254,7 +266,7 @@ The decoherence time in FMO (60 fs, Duan et al. 2017, PNAS) is not a disproof of
 
 ---
 
-## 15. Data Provenance
+## 14. Data Provenance
 
 | Dataset | Accession | Scale | Country |
 |---------|-----------|-------|---------|
@@ -271,7 +283,7 @@ The decoherence time in FMO (60 fs, Duan et al. 2017, PNAS) is not a disproof of
 
 ---
 
-## 16. Reproducibility
+## 15. Reproducibility
 
 Every analysis can be reproduced with:
 
@@ -286,7 +298,7 @@ Every analysis can be reproduced with:
 
 ---
 
-## 17. What We Do Not Claim
+## 16. What We Do Not Claim
 
 - We do not claim the spliceosome uses quantum coherence.
 - We do not claim operator independence causes cancer (correlation, not causation).
