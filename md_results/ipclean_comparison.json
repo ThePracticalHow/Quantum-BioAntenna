@@ -1,0 +1,20 @@
+{
+  "provenance": "IP-clean replication. OpenMM 8.5.1 + amber14/RNA.OL3 + 12-6-4 ions. PDB 1ZIF (public). Personal laptop. April 13, 2026.",
+  "metals": {
+    "Mg": {
+      "pe_mean_kj": -98293.5,
+      "pe_std_kj": 220.1,
+      "frames": 10
+    },
+    "Li": {
+      "pe_mean_kj": -96996.2,
+      "pe_std_kj": 293.4,
+      "frames": 10
+    }
+  },
+  "comparison": {
+    "pe_difference_kj": -1297.3,
+    "rna_rmsd_angstroms": 1.34,
+    "conclusion": "Mg2+ stabilizes the GNRA tetraloop more than Li+. Li+ deforms the RNA backbone by 1.34 angstroms. Replicates Biowulf finding on personal hardware."
+  }
+}

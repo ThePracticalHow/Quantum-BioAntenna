@@ -112,7 +112,7 @@ Splice entropy = variability of intron retention across molecules. Higher = more
 
 | Cell Type | GC% | AT:GC |
 |-----------|-----|-------|
-| P1 HUVEC adult | 46.44% | 53.6:46.4 |
+| Adult endothelial (public) | 46.44% | 53.6:46.4 |
 | H9 fetal stem | 47.47% | 52.5:47.5 |
 | K562 blood cancer | 48.55% | 51.5:48.5 |
 | HepG2 liver cancer | 48.71% | 51.3:48.7 |
